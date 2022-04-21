@@ -1,0 +1,8 @@
+.card 
+  .card-body 
+    .card-title 
+      p #{ item.title }
+    .card-text 
+      p <small> Cost: </small> #{ item.price } $
+    .card-footer 
+      = link_to 'View product', item_path(item), class: "btn btn-primary btn-lg"

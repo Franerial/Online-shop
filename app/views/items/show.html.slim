@@ -1,0 +1,9 @@
+h1.jumbotron #{ @item.title.capitalize }
+
+.container 
+  .card
+    .card-body
+      p = @item.description
+      p <small> SGD </small> #{ @item.price }
+    .card-footer 
+      = link_to 'Back to product list', items_path
