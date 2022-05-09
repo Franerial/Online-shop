@@ -1,0 +1,29 @@
+h1.jumbotron Admin Panel
+
+.container
+  div class="row mt-5 mb-5"
+    div class="col-12 card" 
+      = form_with url: "/search", method: :get do |f|
+        .card-body
+          .row 
+            .col-1
+               = f.label :category_id
+            .col-4
+              = f.collection_select :category_id, Category.all, :id, :title, prompt: true
+          .row
+            div class="col-1 mt-3"
+              = f.submit 'Select', class: "btn btn-success"
+    div class="col-12 mt-3"
+      = link_to 'Add category', new_admin_category_path, { style: 'float:right; pading-right:0px;', class: "btn btn-primary" }
+        
+  .row
+    .col-12.card
+      table.table
+        thead
+          th Title
+          th Description
+          th Price
+        tbody
+        = render partial: "admin_item", collection: @items
+    div class="col-12 mt-3"
+      = link_to 'Add Product', new_admin_item_path, { style: 'float:right; pading-right:0px;', class: "btn btn-primary" }

@@ -1,0 +1,6 @@
+tr
+  td #{ admin_item.title }
+  td #{ admin_item.description }
+  td #{ admin_item.price }
+  td = link_to 'Edit', edit_admin_item_path(admin_item)
+  td = link_to 'Delete', admin_item_path(admin_item), method: :delete
