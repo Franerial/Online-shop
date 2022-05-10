@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "items#index"
-    resources :items
+    resources :items do
+      get :items_by_category, on: :collection
+    end
+
     resources :categories
   end
 end

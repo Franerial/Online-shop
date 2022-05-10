@@ -1,0 +1,11 @@
+$('.category-errors-create').html('<%= render 'shared/errors', resource: @category %>');
+$('.notice').removeClass('alert alert-success mt-3');
+$('.notice').html('');
+
+<% if @category.persisted? %>
+  $('input#category_title').val('');
+  $('.category-errors-create').removeClass('alert alert-danger mt-3');
+  $('.category-errors-create').html('');
+  $('.notice').append('<%= flash[:notice] %>');
+  $('.notice').addClass('mt-3 alert alert-success');
+<% end %>

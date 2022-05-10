@@ -1,0 +1,12 @@
+$('.item-errors-create').html('<%= render 'shared/errors', resource: @item %>');
+$('.notice').removeClass('alert alert-success mt-3');
+$('.notice').html('');
+
+<% if @item.persisted? %>
+  $('input').val('');
+  $('select').val('');
+  $('.item-errors-create').removeClass('alert alert-danger mt-3');
+  $('.item-errors-create').html('');
+  $('.notice').append('<%= flash[:notice] %>');
+  $('.notice').addClass('mt-3 alert alert-success');
+<% end %>

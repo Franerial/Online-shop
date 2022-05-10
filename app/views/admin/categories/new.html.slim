@@ -1,13 +1,15 @@
 h1.jumbotron Add new category
 
 .container
-  = form_with model: [:admin, @category], class: "form-horizontal" do |f|
+  = form_with model: [:admin, @category], class: "form-horizontal", local: false do |f|
     div class="card"
       .card-body
+        .category-errors-create
         .mb-3 
           = f.label :title, 'Category title', class: "form-label"
           = f.text_field :title, class: "form-control"
 
         = f.submit "Submit", class: "btn btn-success"
+        .notice  
 
   = link_to 'Back to products list', admin_items_path
